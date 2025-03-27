@@ -1,0 +1,28 @@
+spring:
+  shardingsphere:
+    mode:
+      type: Memory
+    datasource:
+      names: order_ds
+      order_ds:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://83.229.122.117:3306/sharding_db?serverTimezone=UTC&useSSL=false
+        username:
+        password: 
+    rules:
+      sharding:
+        tables:
+          t_order:
+            actual-data-nodes: order_ds.t_order_0,order_ds.t_order_1
+            table-strategy:
+              standard:
+                sharding-column: user_id
+                sharding-algorithm-name: alg_mod
+        sharding-algorithms:
+          alg_mod:
+            type: MOD
+            props:
+              sharding-count: "2"
+    props:
+      sql-show: true
