@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +21,5 @@ public class Order {
     private Long merchantId;
     private BigDecimal amount;
     private Integer orderStatusId;
+    private Date createTime;
 }

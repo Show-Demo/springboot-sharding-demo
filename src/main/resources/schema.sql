@@ -1,25 +1,23 @@
-SET NAMES utf8mb4;
- SET FOREIGN_KEY_CHECKS = 0;
- -- ----------------------------
- -- Table structure for t_order_0
- -- ----------------------------
- DROP TABLE IF EXISTS `t_order_0`;
- CREATE TABLE `t_order_0` (
+-- 表结构（t_order_202501）
+DROP TABLE IF EXISTS `t_order_202501`;
+CREATE TABLE `t_order_202501` (
   `order_id` bigint NOT NULL,
-  `user_id` bigint NULL DEFAULT NULL,
-  `amount` decimal(10, 2) NULL DEFAULT NULL,
-  `merchant_id` bigint NULL DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `merchant_id` bigint DEFAULT NULL,
   `order_status_id` int,
-  PRIMARY KEY (`order_id`) USING BTREE
- ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
- DROP TABLE IF EXISTS `t_order_1`;
- CREATE TABLE `t_order_1` (
-  `order_id` bigint NOT NULL,
-  `user_id` bigint NULL DEFAULT NULL,
-  `amount` decimal(10, 2) NULL DEFAULT NULL,
-  `merchant_id` bigint NULL DEFAULT NULL,
-  `order_status_id` int,
-  PRIMARY KEY (`order_id`) USING BTREE
- ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
- SET FOREIGN_KEY_CHECKS = 1;
+-- 表结构（t_order_202502）
+DROP TABLE IF EXISTS `t_order_202502`;
+CREATE TABLE `t_order_202502` (
+  `order_id` bigint NOT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `merchant_id` bigint DEFAULT NULL,
+  `order_status_id` int,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
